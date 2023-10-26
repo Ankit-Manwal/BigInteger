@@ -265,6 +265,39 @@ struct BigInteger mul(struct BigInteger n1, struct BigInteger n2)
     return ans;
 }
 
+//division
+struct BigInteger div1(struct BigInteger n1, struct BigInteger n2)
+{
+  struct BigInteger n3 = initialize("0");
+  int flag = 0;
+  n3.length = 0;
+  n3.sign = '+';
+  char sign = '+';
+  if (n2.length == 1 && n2.head->data == 0)
+  {
+    printf("Error\n");
+    return n3;
+  }
+  if (n1.sign != n2.sign)
+       sign = '-';
+  char s1 = n1.sign;
+  char s2 = n2.sign;
+  n1.sign = '+';
+  n2.sign = '+';
+  struct BigInteger temp = add(n2, initialize("0"));
+  while (compare(n1, temp) >= 0) 
+  {
+    temp = add(temp, n2);
+    n3 = add(n3, initialize("1"));
+    flag = 1;
+  }
+  if (flag!=0)
+     n3.sign = sign;
+  n1.sign = s1;
+  n2.sign = s2;
+  return n3;
+}
+
 void displaylinked(struct node* head)
 {
     if(!head)  
