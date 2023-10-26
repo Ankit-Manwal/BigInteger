@@ -41,15 +41,15 @@ void insert_end(struct BigInteger* n, int val)
 }
 struct node* reverse(struct node* head)
  {
-    struct node* back = NULL, * front = NULL, * curr = head;
+    struct node* prev = NULL, * front = NULL, * curr = head;
     while (curr) 
     {
         front = curr->next;
-        curr->next = back;
-        back = curr;
+        curr->next = prev;
+        prev = curr;
         curr = front;
     }
-    return back;
+    return prev;
 }
 
 
