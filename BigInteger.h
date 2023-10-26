@@ -22,6 +22,7 @@ void trailing(struct node ** head);
 struct BigInteger add(struct BigInteger n1, struct BigInteger n2);
 struct BigInteger sub(struct BigInteger n1, struct BigInteger n2);
 struct BigInteger mul(struct BigInteger n1, struct BigInteger n2);
+struct BigInteger div1(struct BigInteger n1, struct BigInteger n2);
 void displaylinked(struct node* head);
 void display(struct BigInteger n);
 void free_linked(struct BigInteger* n);
